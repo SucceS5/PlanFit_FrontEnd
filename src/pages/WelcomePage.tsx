@@ -1,7 +1,7 @@
 import style from "../less/WelcomePage.module.less";
 import { useState } from "react";
 import LoginComponent from "../component/pages/LoginComponent";
-import SignUpComponent from "../component/pages/SignupComponent";
+import SignUpComponent from "../component/pages/SignUpComponent";
 
 export default function WelcomePage() {
   const [mode, setMode] = useState("default"); // 'login', 'signup', or 'default'
