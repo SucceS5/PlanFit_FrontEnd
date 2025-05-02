@@ -17,6 +17,10 @@ export default function MainPage() {
         <h1>더 특별하게</h1>
         <h3>앞으로의 일정을 확인해보세요.</h3>
         <div className={style.plan}></div>
+        <div className={style.addButtons}>
+          <div>코스 생성하기</div>
+          <div>포스트 생성하기</div>
+        </div>
       </div>
     </div>
   );
