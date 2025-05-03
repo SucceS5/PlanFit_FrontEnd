@@ -23,7 +23,7 @@ export default function MainPage() {
           <div>포스트</div>
           <div>코스</div>
           <div>좋아요</div>
-          <div>마이페이지</div>
+          <div onClick={handleShowModal}>마이페이지</div>
         </div>
       </div>
       <div className={style.section}>
@@ -33,13 +33,17 @@ export default function MainPage() {
         <div className={style.plan}></div>
         <div className={style.addButtons}>
           <div onClick={() => navigate("/CreateCourse")}>코스 생성하기</div>
-          {/* 포스트 생성하기 클릭 시 모달 표시 */}
-          <div onClick={handleShowModal}>포스트 생성하기</div>
+          <div>포스트 생성하기</div>
         </div>
       </div>
 
       {/* 모달이 열리면 MyPage 컴포넌트를 모달로 표시 */}
-      {showMyPage && <MyPage onClose={handleCloseModal} />}
+      {showMyPage && (
+        <>
+          <div className={style.overlay} onClick={handleCloseModal}></div>
+          <MyPage onClose={handleCloseModal} />
+        </>
+      )}
     </div>
   );
 }
