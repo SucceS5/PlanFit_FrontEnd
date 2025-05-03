@@ -3,9 +3,18 @@ import style from "../less/CreateCourse.module.less";
 import Search from "../component/pages/Search";
 import { useNavigate } from "react-router-dom";
 
+interface Place {
+  id: string;
+  name: string;
+  address: string;
+  imageUrl: string;
+  category: "음식점" | "카페" | "놀거리" | "명소";
+}
+
 export default function CreateCourse() {
   const navigate = useNavigate();
   const [showSearch, setShowSearch] = useState(false);
+  const [selectedPlaces, setSelectedPlaces] = useState<Place[]>([]);
 
   const handleSearchClick = () => {
     setShowSearch(true);
@@ -13,6 +22,12 @@ export default function CreateCourse() {
 
   const handleCloseSearch = () => {
     setShowSearch(false);
+  };
+
+  const handleAddPlace = (place: Place) => {
+    if (!selectedPlaces.find((p) => p.id === place.id)) {
+      setSelectedPlaces([...selectedPlaces, place]);
+    }
   };
 
   return (
@@ -61,13 +76,23 @@ export default function CreateCourse() {
             <div className={style.buttons} onClick={handleSearchClick}>
               클릭
             </div>
-            <div className={style.result}></div>
+            <div className={style.result}>
+              {selectedPlaces.map((place) => (
+                <div key={place.id} className={style.card}>
+                  <img src={place.imageUrl} alt={place.name} />
+                  <div className={style.info}>
+                    <h3>{place.name}</h3>
+                    <p>{place.address}</p>
+                  </div>
+                  <div className={style.delete}>X</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div></div>
       </div>
 
-      {showSearch && <Search onClose={handleCloseSearch} />}
+      {showSearch && <Search onClose={handleCloseSearch} onAdd={handleAddPlace} />}
     </div>
   );
 }

@@ -1,7 +1,20 @@
 import style from "../less/MainPage.module.less";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MyPage from "../component/pages/MyPage";
+
 export default function MainPage() {
   const navigate = useNavigate();
+  const [showMyPage, setShowMyPage] = useState(false);
+
+  const handleShowModal = () => {
+    setShowMyPage(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowMyPage(false);
+  };
+
   return (
     <div className={style.container}>
       <div className={style.function}>
@@ -20,9 +33,13 @@ export default function MainPage() {
         <div className={style.plan}></div>
         <div className={style.addButtons}>
           <div onClick={() => navigate("/CreateCourse")}>코스 생성하기</div>
-          <div>포스트 생성하기</div>
+          {/* 포스트 생성하기 클릭 시 모달 표시 */}
+          <div onClick={handleShowModal}>포스트 생성하기</div>
         </div>
       </div>
+
+      {/* 모달이 열리면 MyPage 컴포넌트를 모달로 표시 */}
+      {showMyPage && <MyPage onClose={handleCloseModal} />}
     </div>
   );
 }

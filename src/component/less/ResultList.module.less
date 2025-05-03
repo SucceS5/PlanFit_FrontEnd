@@ -1,0 +1,73 @@
+.resultList {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: row;
+  gap: 1em;
+  height: 98%;
+  overflow-y: auto;
+}
+
+.card {
+  background-color: #fff;
+  width: 90%;
+  height: 20%;
+  border-radius: 1em;
+  padding: 0.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center; // 좌-중앙-우 정렬
+  flex-direction: row;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+  column-gap: 0.5em;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  img {
+    width: 26%;
+    height: 90%;
+    background-color: #f4f5f7;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .info {
+    width: 74%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+
+    p {
+      margin: 4px 0 8px;
+      font-size: 14px;
+      color: #777;
+    }
+  }
+
+  .addbutton {
+    padding: 6px 12px;
+    background-color: #0e5732;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+      background-color: #0e5732;
+    }
+  }
+}
