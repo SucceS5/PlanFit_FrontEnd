@@ -33,7 +33,7 @@ export default function MainPage() {
         <div className={style.plan}></div>
         <div className={style.addButtons}>
           <div onClick={() => navigate("/CreateCourse")}>코스 생성하기</div>
-          <div>포스트 생성하기</div>
+          <div onClick={() => navigate("/CreatePost")}>포스트 생성하기</div>
         </div>
       </div>
 
