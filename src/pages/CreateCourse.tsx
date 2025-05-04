@@ -40,6 +40,12 @@ export default function CreateCourse() {
     }
   };
 
+  const handleDeletePlace = (id: string) => {
+    if (window.confirm("정말 이 장소를 삭제하시겠습니까?")) {
+      setSelectedPlaces(selectedPlaces.filter((place) => place.id !== id));
+    }
+  };
+
   return (
     <div className={style.container}>
       <div className={style.function}>
@@ -94,7 +100,9 @@ export default function CreateCourse() {
                     <h3>{place.name}</h3>
                     <p>{place.address}</p>
                   </div>
-                  <div className={style.delete}>X</div>
+                  <div className={style.delete} onClick={() => handleDeletePlace(place.id)}>
+                    X
+                  </div>
                 </div>
               ))}
             </div>
