@@ -7,7 +7,6 @@ import CreateCourse from "./pages/CreateCourse";
 import Post from "./pages/Post";
 import Course from "./pages/Course";
 import Like from "./pages/Like";
-import CreatePost from "./pages/CreatePost";
 
 export default function App() {
   return (
@@ -16,7 +15,6 @@ export default function App() {
         <Route path="/" element={<WelcomePage />} />
         <Route path="/MainPage" element={<MainPage />} />
         <Route path="/CreateCourse" element={<CreateCourse />} />
-        <Route path="/CreatePost" element={<CreatePost />} />
         <Route path="/Post" element={<Post />} />
         <Route path="/Course" element={<Course />} />
         <Route path="/Like" element={<Like />} />
