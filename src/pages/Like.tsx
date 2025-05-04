@@ -30,6 +30,16 @@ export default function Like() {
       </div>
       <div className={style.section}>
         <div className={style.title}>좋아요</div>
+        <div className={style.article}>
+          <div className={style.post}>
+            <h2>포스트</h2>
+            <div className={style.result}></div>
+          </div>
+          <div className={style.place}>
+            <h2>장소</h2>
+            <div className={style.result}></div>
+          </div>
+        </div>
       </div>
 
       {/* 모달이 열리면 MyPage 컴포넌트를 모달로 표시 */}
