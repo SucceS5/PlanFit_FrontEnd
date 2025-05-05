@@ -66,17 +66,71 @@ body {
     justify-content: start;
     align-items: center;
     flex-direction: column;
+    row-gap: 1em;
 
-    .title {
-      width: 90%;
-      height: 10%;
-      margin-top: 1em;
+    .searchBar {
+      width: 40%;
+      height: 12%;
       display: flex;
-      justify-content: space-between; /* 양쪽 끝으로 배치 */
-      align-items: center;
-      font-size: 2em;
-      color: #2b5f3e;
-      font-weight: bold;
+      justify-content: center;
+      align-items: end;
+      flex-direction: row;
+      column-gap: 1em;
+
+      input {
+        flex: 1;
+        padding: 1em;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 0.4em;
+      }
+
+      button {
+        padding: 0.8em;
+        width: 18%;
+        font-size: 16px;
+        background-color: #156c41;
+        color: white;
+        border: none;
+        border-radius: 0.4em;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: #0e5732;
+        }
+      }
+    }
+
+    .filter {
+      width: 40%;
+      height: 6%;
+      display: flex;
+      column-gap: 1em;
+
+      button {
+        padding: 0.3em;
+        width: 33%;
+        font-size: 0.8em;
+        background-color: white;
+        border: #ccc;
+        border: none;
+        border-radius: 0.4em;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: #777;
+        }
+      }
+    }
+
+    .result {
+      width: 80%;
+      height: 70%;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 0.5em;
     }
   }
 }
