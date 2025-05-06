@@ -1,0 +1,74 @@
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 98;
+
+  .modal {
+    background-color: #ffffff;
+    width: 45vw;
+    height: 70vh;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    z-index: 99;
+
+    .courseList {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      height: 80%;
+      gap: 12px;
+      overflow-y: auto;
+    }
+
+    .courseItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    .date {
+      width: 100px;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    .title {
+      flex: 1;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .loadButton {
+      background-color: #4caf50;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #2b5f3e;
+      }
+    }
+  }
+}

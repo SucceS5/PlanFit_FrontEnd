@@ -2,6 +2,7 @@ import { useState } from "react";
 import style from "../less/CreateCourse.module.less";
 import Search from "../component/pages/Search";
 import { useNavigate } from "react-router-dom";
+import MyPage from "../component/pages/MyPage";
 
 interface Place {
   id: string;
@@ -15,6 +16,15 @@ export default function CreateCourse() {
   const navigate = useNavigate();
   const [showSearch, setShowSearch] = useState(false);
   const [selectedPlaces, setSelectedPlaces] = useState<Place[]>([]);
+  const [showMyPage, setShowMyPage] = useState(false);
+
+  const handleShowModal = () => {
+    setShowMyPage(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowMyPage(false);
+  };
 
   const handleSearchClick = () => {
     setShowSearch(true);
@@ -43,10 +53,10 @@ export default function CreateCourse() {
           PlanFit
         </div>
         <div className={style.body}>
-          <div>포스트</div>
-          <div>코스</div>
-          <div>좋아요</div>
-          <div>마이페이지</div>
+          <div onClick={() => navigate("/Post")}>포스트</div>
+          <div onClick={() => navigate("/Course")}>코스</div>
+          <div onClick={() => navigate("/Like")}>좋아요</div>
+          <div onClick={handleShowModal}>마이페이지</div>
         </div>
       </div>
 
@@ -101,6 +111,12 @@ export default function CreateCourse() {
       </div>
 
       {showSearch && <Search onClose={handleCloseSearch} onAdd={handleAddPlace} />}
+      {showMyPage && (
+        <>
+          <div className={style.overlay} onClick={handleCloseModal}></div>
+          <MyPage onClose={handleCloseModal} />
+        </>
+      )}
     </div>
   );
 }
